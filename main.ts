@@ -16,7 +16,7 @@ export default class EditingModeHotkey extends Plugin {
 						key: 'E',
 					},
 				],
-				editorCallback: () => this.toggleDefaultEditingMode(),
+				callback: () => this.toggleDefaultEditingMode(),
 			});
 
 	}
