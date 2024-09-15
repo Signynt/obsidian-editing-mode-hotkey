@@ -23,13 +23,12 @@ export default class EditingModeHotkey extends Plugin {
 	}
 
 private toggleDefaultEditingMode() {
-		// check the view mode of the current tab
-		const activeView = this.app.workspace.getActiveViewOfType(MarkdownView)
-		if (!activeView) return;
-			const view = activeView.getState();
+		// check the curren default view mode
+		const livePreview = this.app.vault.getConfig("livePreview");
 
-		// set the view mode of all windows to the opposite of the current view mode
-		if (view.source === true) {
+		// set the view mode of all tabs to either source or live preview
+		if (livePreview === false) {
+				this.app.vault.setConfig("livePreview", true);
 				this.app.workspace.iterateAllLeaves(leaf => {
 				const view = leaf.getViewState();
 				// check if the current view mode is in edit view, to prevent the state of tabs such as kanban boards to be changed
@@ -38,7 +37,8 @@ private toggleDefaultEditingMode() {
 					leaf.setViewState(view);
 				}
 			});
-		} else if (view.source === false) {
+		} else if (livePreview === true) {
+			this.app.vault.setConfig("livePreview", false);
 			this.app.workspace.iterateAllLeaves(leaf => {
 				const view = leaf.getViewState();
 				// check if the current view mode is in edit view, to prevent the state of tabs such as kanban boards to be changed
@@ -48,9 +48,5 @@ private toggleDefaultEditingMode() {
 				}
 			});
 		}
-
-		// Set the default view mode to source mode, or live preview
-		const livePreview = this.app.vault.getConfig("livePreview");
-		this.app.vault.setConfig("livePreview", !livePreview);
 	}
 }
