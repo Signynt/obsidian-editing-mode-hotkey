@@ -1,5 +1,4 @@
 import {
-	MarkdownView,
 	Plugin,
 } from 'obsidian';
 
