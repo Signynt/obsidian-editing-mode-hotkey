@@ -4,7 +4,7 @@ import {
 
 export default class EditingModeHotkey extends Plugin {
 	async onload() {
-		console.log('loading obisidian-editing-mode-hotkey');
+		console.log('loading editing-mode-hotkey');
 
 		this.addCommand({
 			id: 'toggleDefaultEditingMode',
