@@ -1,9 +1,9 @@
 {
 	"id": "editing-mode-hotkey",
 	"name": "Editing Mode Hotkey",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"minAppVersion": "0.15.0",
-	"description": "Adds a command and hotkey to toggle the default editing mode (between Live Preview and Source)",
+	"description": "Adds a command and hotkey to toggle the default editing mode (between Live Preview and Source).",
 	"author": "Signynt",
 	"authorUrl": "https://github.com/Signynt",
 	"isDesktopOnly": false
